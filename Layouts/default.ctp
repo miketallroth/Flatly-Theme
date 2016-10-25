@@ -6,9 +6,34 @@
 		<title><?php echo Configure::read('Site.title'); ?> | <?php echo $title_for_layout; ?></title>
 		<?php
 
+		$bootswatchTheme = 'cerulean.min';
+		if (Configure::read('Bootswatch.theme')) {
+			$bootswatchTheme = Configure::read('Bootswatch.theme');
+		}
+		$bootswatchLogo = 'cakephp_small.png';
+		if (Configure::read('Bootswatch.logo')) {
+			$bootswatchLogo = '../uploads/' . Configure::read('Bootswatch.logo');
+		}
+		$bootswatchLogoClass = 'col-lg-2 col-md-2 ';
+		if (Configure::read('Bootswatch.logoClass')) {
+			$bootswatchLogoClass = Configure::read('Bootswatch.logoClass');
+		}
+		$bootswatchLogoHeight = '140px';
+		if (Configure::read('Bootswatch.logoHeight')) {
+			$bootswatchLogoHeight = Configure::read('Bootswatch.logoHeight');
+		}
+		$bootswatchLogoWidth = '140px';
+		if (Configure::read('Bootswatch.logoWidth')) {
+			$bootswatchLogoWidth = Configure::read('Bootswatch.logoWidth');
+		}
+		$bootswatchTitleClass = 'col-lg-10 col-md-10 ';
+		if (Configure::read('Bootswatch.titleClass')) {
+			$bootswatchTitleClass = Configure::read('Bootswatch.titleClass');
+		}
+
 		echo $this->Html->css(array(
 			'bootstrap',
-			'bootswatch.min',
+			$bootswatchTheme,
 			'custom',
 			'/croogo/css/thickbox',
 		));
@@ -42,10 +67,10 @@
 
 					<div class="page-header" id="banner">
 					    <div class="row">
-					      	<div class="col-lg-2 col-md-2 ">
-					      		<?php echo $this->Html->image('cakephp_small.png', $options = array('class' =>'img-rounded', 'width' => '140px', 'height' => '140px')); ?>
+					      	<div class="<?php echo $bootswatchLogoClass; ?> ">
+					      		<?php echo $this->Html->image($bootswatchLogo, $options = array('class' =>'img-rounded', 'width' => $bootswatchLogoWidth, 'height' => $bootswatchLogoHeight)); ?>
 					      	</div>	
-					      	<div class="col-lg-10 col-md-10">
+					      	<div class="<?php echo $bootswatchTitleClass; ?> ">
 					           <h1><?php echo Configure::read('Site.title'); ?></h1>
 					           <p class="lead"><?php echo Configure::read('Site.tagline'); ?></p>
 					        </div>
@@ -78,17 +103,6 @@
 		
 			<?php echo $this->element('footer'); ?>
 		</div>
-
-		<script type="text/javascript">
-
-			$(document).ready(function(){
-				
-				$( "#promo_discount" ).load( "<?php echo $this->base; ?>/promo_discount" );
-		       			
-		    });
-
-		</script>
-
 
 		<?php
 			echo $this->Blocks->get('scriptBottom');

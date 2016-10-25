@@ -11,8 +11,8 @@
 													); ?>
 			<?php echo $this->Html->image('http://assets.croogo.org/powered_by.png'); ?>
 
-			Theme: <?php echo $this->Html->link('Flatly', 
-												'http://github.com/sherwinrobles/Flatly-Theme',
+			Theme: <?php echo $this->Html->link('Bootswatch', 
+												'http://github.com/miketallroth/croogo-theme-bootswatch',
 												array('target' => '_blank')
 												); ?>
 		</div>

@@ -16,8 +16,13 @@
 	<div id="node-<?php echo $this->Nodes->field('id'); ?>" class="node node-type-<?php echo $this->Nodes->field('type'); ?>">
 		<h2><?php echo $this->Html->link($this->Nodes->field('title'), $this->Nodes->field('url')); ?></h2>
 		<?php
+			// Show excerpt (with "Read More" link) if provided
+			// hardcode for strlen() is length of empty content plus wrapping tags
 			echo $this->Nodes->info();
-			echo $this->Nodes->body();
+			$e = $this->Nodes->excerpt();
+			$eLink = $this->Html->link('Read More...', $this->Nodes->field('url'));
+			$b = $this->Nodes->body();
+			echo (strlen($e) > 35) ? ($e . $eLink) : $b;
 			echo $this->Nodes->moreInfo();
 		?>
 	</div>
