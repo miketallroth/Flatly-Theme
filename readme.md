@@ -16,7 +16,15 @@ Download and extract file inside app/View/Themed/
 
 ## Support for Bootswatch themes
 
-Go to http://example.com/admin/settings page and create new setting 'Bootswatch.theme'. Set one of the following values to select theme instantly.
+Go to http://example.com/admin/settings page and create new settings:
+* Bootswatch.theme - the Bootswatch theme name
+* Bootswatch.logo - your logo, uploaded as an attachment, specify name only (no path)
+* Bootswatch.logoHeight - your logo height
+* Bootswatch.logoWidth - your logo width
+* Bootswatch.logoClass - the grid column classes for the logo
+* Bootswatch.titleClass - the grid column classes for the title
+
+Bootswatch.theme must be one of the following:
 * cerulean.min
 * cosmo.min
 * cyborg.min
@@ -33,3 +41,6 @@ Go to http://example.com/admin/settings page and create new setting 'Bootswatch.
 * superhero.min
 * united.min
 * yeti.min
+
+Bootswatch.logoClass and titleClass must be of the form:
+* col-lg-4 col-md-4 col-sm-6 col-xs-12
